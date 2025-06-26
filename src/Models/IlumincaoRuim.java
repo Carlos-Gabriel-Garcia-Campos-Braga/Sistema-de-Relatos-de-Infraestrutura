@@ -46,4 +46,18 @@ public class IlumincaoRuim extends Relatos
 
         this.NivelIluminacao = nivelIluminacao;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Iluminação Ruim: \n" +
+               "Motivo: " + Motivo + "\n" +
+               "Descrição: " + Descricao + "\n" +
+               "Data: " + Data + "\n" +
+               "Endereço: " + Endereco + "\n" +
+               "Cidade: " + Cidade + "\n" +
+               "Nível de Preocupação: " + NivelPreocupacao + "\n" +
+               "Quantidade de Lâmpadas Queimadas: " + QtdLampadasQueimadas + "\n" +
+               "Nível de Iluminação: " + NivelIluminacao;
+    }
 }

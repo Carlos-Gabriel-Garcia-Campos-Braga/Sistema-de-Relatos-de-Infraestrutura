@@ -47,4 +47,17 @@ public class LixoIrregular extends Relatos
         this.Quantidade = quantidade;
     }
     
+    @Override
+    public String toString()
+    {
+        return "Lixo Irregular: \n" +
+               "Motivo: " + Motivo + "\n" +
+               "Descrição: " + Descricao + "\n" +
+               "Data: " + Data + "\n" +
+               "Endereço: " + Endereco + "\n" +
+               "Cidade: " + Cidade + "\n" +
+               "Nível de Preocupação: " + NivelPreocupacao + "\n" +
+               "Tipo de Lixo: " + TipoLixo + "\n" +
+               "Quantidade: " + Quantidade;
+    }
 }
