@@ -1,6 +1,6 @@
 package Models;
 
-import Excecoes.ExcecoesPersonalizadas;
+import Exceptions.ExcecoesPersonalizadas;
 
 public class LixoIrregular extends Relatos
 {

@@ -1,7 +1,7 @@
 package App;
 
+import DesignPatterns.RelatoInstance;
 import Models.BuracoVia;
-import SingletonRelato.RelatoInstance;
 
 public class App {
     public static void main(String[] args) throws Exception 

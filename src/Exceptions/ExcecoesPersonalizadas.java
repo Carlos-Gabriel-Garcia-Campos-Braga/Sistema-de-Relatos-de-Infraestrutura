@@ -1,4 +1,4 @@
-package Excecoes;
+package Exceptions;
 
 public class ExcecoesPersonalizadas extends RuntimeException 
 {

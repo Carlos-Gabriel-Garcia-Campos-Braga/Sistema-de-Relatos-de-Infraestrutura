@@ -1,6 +1,6 @@
 package Models;
 
-import Excecoes.ExcecoesPersonalizadas;
+import Exceptions.ExcecoesPersonalizadas;
 
 public class Relatos 
 {
@@ -19,16 +19,6 @@ public class Relatos
         setEndereco(endereco);
         setCidade(cidade);
         setNivelPreocupacao(nivelPreocupacao);
-    }
-
-    public String getMotivo() {
-        return Motivo;
-    }
-    public String getDescricao() {
-        return Descricao;
-    }
-    public String getData() {
-        return Data;
     }
 
     //Setters

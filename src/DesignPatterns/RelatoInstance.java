@@ -1,4 +1,4 @@
-package SingletonRelato;
+package DesignPatterns;
 
 import Models.BuracoVia;
 import Models.IlumincaoRuim;
@@ -6,7 +6,7 @@ import Models.LixoIrregular;
 
 public class RelatoInstance 
 {
-    //Implemento o padrão Singleton e do Prototype para a classe BuracoVia
+    //Implemento o padrão Singleton e do Prototype
     private static BuracoVia buracoViaInstance = new BuracoVia(
             "Buraco na via",
             "Grande buraco na via",
