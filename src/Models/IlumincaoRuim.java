@@ -1,5 +1,6 @@
 package Models;
 
+import DesignPatterns.RelatoInstance;
 import Exceptions.ExcecoesPersonalizadas;
 
 public class IlumincaoRuim extends Relatos
@@ -13,6 +14,7 @@ public class IlumincaoRuim extends Relatos
         super(motivo, descricao, data, endereco, cidade, nivelPreocupacao);
         this.QtdLampadasQueimadas = qtdLampadasQueimadas;
         this.NivelIluminacao = nivelIluminacao;
+        RelatoInstance.IluminacaoRuimCount++;
     }
 
     private IlumincaoRuim(IlumincaoRuim i)

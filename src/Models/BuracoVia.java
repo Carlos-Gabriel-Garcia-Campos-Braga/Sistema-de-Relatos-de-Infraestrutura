@@ -1,5 +1,6 @@
 package Models;
 
+import DesignPatterns.RelatoInstance;
 
 public class BuracoVia extends Relatos
 {
@@ -7,8 +8,11 @@ public class BuracoVia extends Relatos
     public BuracoVia(String motivo, String descricao, String data, String endereco, String cidade, int nivelPreocupacao)
     {
         super(motivo, descricao, data, endereco, cidade, nivelPreocupacao);
+        
+        RelatoInstance.BuracoViaCount++;
     }
 
+    //Prototype
     private BuracoVia(BuracoVia b)
     {
         super(b.Motivo, b.Descricao, b.Data, b.Endereco, b.Cidade, b.NivelPreocupacao);
