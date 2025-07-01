@@ -1,32 +1,32 @@
-package Models;
+package model.entities;
 
-import DesignPatterns.RelatoInstance;
-import Exceptions.ExcecoesPersonalizadas;
+import model.designPatterns.RelatoInstance;
+import model.util.exception.ExcecoesPersonalizadas;
 
-public class IlumincaoRuim extends Relatos
+public class IluminacaoRuim extends Relatos
 {
     public int QtdLampadasQueimadas;
     public int NivelIluminacao;
 
-    public IlumincaoRuim(String motivo, String descricao, String data, String endereco, String cidade, 
+    public IluminacaoRuim(String motivo, String descricao, String data, String endereco, String cidade, 
                          int nivelPreocupacao, int qtdLampadasQueimadas, int nivelIluminacao)
     {
         super(motivo, descricao, data, endereco, cidade, nivelPreocupacao);
         this.QtdLampadasQueimadas = qtdLampadasQueimadas;
         this.NivelIluminacao = nivelIluminacao;
-        RelatoInstance.IluminacaoRuimCount++;
+        RelatoInstance.getInstance().incrementarIluminacaoRuimCount();
     }
 
-    private IlumincaoRuim(IlumincaoRuim i)
+    private IluminacaoRuim(IluminacaoRuim i)
     {
         super(i.Motivo, i.Descricao, i.Data, i.Endereco, i.Cidade, i.NivelPreocupacao);
         this.QtdLampadasQueimadas = i.QtdLampadasQueimadas;
         this.NivelIluminacao = i.NivelIluminacao;
     }
 
-    public IlumincaoRuim Clone()
+    public IluminacaoRuim Clone()
     {
-        return new IlumincaoRuim(this);
+        return new IluminacaoRuim(this);
     }
 
     public void setQtdLampadasQueimadas(int qtdLampadasQueimadas) 

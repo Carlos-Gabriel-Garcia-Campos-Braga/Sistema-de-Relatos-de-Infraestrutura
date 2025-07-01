@@ -1,28 +1,28 @@
-package Models;
+package model.entities;
 
-import DesignPatterns.RelatoInstance;
+import model.designPatterns.RelatoInstance;
 
-public class SemafaroProblema extends Relatos
+public class SemaforoProblema extends Relatos
 {
     public String TipoProblema;
     
-    public SemafaroProblema(String motivo, String descricao, String data, String endereco, String cidade, 
+    public SemaforoProblema(String motivo, String descricao, String data, String endereco, String cidade, 
                             int nivelPreocupacao, String tipoProblema)
     {
         super(motivo, descricao, data, endereco, cidade, nivelPreocupacao);
         this.TipoProblema = tipoProblema;
-        RelatoInstance.SemafaroProblemaCount++;
+        RelatoInstance.getInstance().incrementarSemaforoProblemaCount();
     }
 
-    private SemafaroProblema(SemafaroProblema s)
+    private SemaforoProblema(SemaforoProblema s)
     {
         super(s.Motivo, s.Descricao, s.Data, s.Endereco, s.Cidade, s.NivelPreocupacao);
         this.TipoProblema = s.TipoProblema;
     }
 
-    public SemafaroProblema Clone()
+    public SemaforoProblema Clone()
     {
-        return new SemafaroProblema(this);
+        return new SemaforoProblema(this);
     }
 
     @Override

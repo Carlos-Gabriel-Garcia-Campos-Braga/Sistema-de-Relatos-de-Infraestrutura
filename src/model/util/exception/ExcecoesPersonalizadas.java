@@ -1,4 +1,4 @@
-package Exceptions;
+package model.util.exception;
 
 public class ExcecoesPersonalizadas extends RuntimeException 
 {

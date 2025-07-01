@@ -1,8 +1,8 @@
-package Models;
+package model.entities;
 
-import Exceptions.ExcecoesPersonalizadas;
+import model.util.exception.ExcecoesPersonalizadas;
 
-public class Relatos 
+public abstract class Relatos 
 {
     protected String Motivo;
     protected String Descricao;

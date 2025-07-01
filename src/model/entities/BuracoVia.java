@@ -1,6 +1,6 @@
-package Models;
+package model.entities;
 
-import DesignPatterns.RelatoInstance;
+import model.designPatterns.RelatoInstance;
 
 public class BuracoVia extends Relatos
 {
@@ -9,7 +9,7 @@ public class BuracoVia extends Relatos
     {
         super(motivo, descricao, data, endereco, cidade, nivelPreocupacao);
         
-        RelatoInstance.BuracoViaCount++;
+        RelatoInstance.getInstance().incrementarBuracoViaCount();
     }
 
     //Prototype

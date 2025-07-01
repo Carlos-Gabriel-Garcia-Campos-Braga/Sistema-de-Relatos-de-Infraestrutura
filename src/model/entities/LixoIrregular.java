@@ -1,7 +1,7 @@
-package Models;
+package model.entities;
 
-import DesignPatterns.RelatoInstance;
-import Exceptions.ExcecoesPersonalizadas;
+import model.designPatterns.RelatoInstance;
+import model.util.exception.ExcecoesPersonalizadas;
 
 public class LixoIrregular extends Relatos
 {
@@ -14,7 +14,7 @@ public class LixoIrregular extends Relatos
         super(motivo, descricao, data, endereco, cidade, nivelPreocupacao);
         this.TipoLixo = tipoLixo;
         this.Quantidade = quantidade;
-        RelatoInstance.LixoIrregularCount++;
+        RelatoInstance.getInstance().incrementarLixoIrregularCount();
     }
 
     // Construtor de cópia para o padrão Prototype
