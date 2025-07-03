@@ -11,7 +11,13 @@ public class BuracoVia extends Relatos
         
         RelatoInstance.getInstance().incrementarBuracoViaCount();
     }
-
+    //Observer
+    public BuracoVia(String descricao,String data, String endereco, String cidade, int nivelPreocupacao){ 
+         
+        super("Not defined",descricao, data, endereco, cidade, nivelPreocupacao);
+        this.notifyObservers();
+        
+    }
     //Prototype
     private BuracoVia(BuracoVia b)
     {

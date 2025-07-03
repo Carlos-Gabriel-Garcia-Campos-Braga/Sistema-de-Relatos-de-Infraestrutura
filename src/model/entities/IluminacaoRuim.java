@@ -1,27 +1,40 @@
 package model.entities;
 
+import model.behavior.VerificaIluminacao;
 import model.designPatterns.RelatoInstance;
 import model.util.exception.ExcecoesPersonalizadas;
 
 public class IluminacaoRuim extends Relatos
 {
-    public int QtdLampadasQueimadas;
-    public int NivelIluminacao;
-
+    public int qtdLampadasQueimadas;
+    public int nivelIluminacao;
+    private VerificaIluminacao vI = new  VerificaIluminacao();
     public IluminacaoRuim(String motivo, String descricao, String data, String endereco, String cidade, 
                          int nivelPreocupacao, int qtdLampadasQueimadas, int nivelIluminacao)
     {
         super(motivo, descricao, data, endereco, cidade, nivelPreocupacao);
-        this.QtdLampadasQueimadas = qtdLampadasQueimadas;
-        this.NivelIluminacao = nivelIluminacao;
+        
+        this.qtdLampadasQueimadas = qtdLampadasQueimadas;
+        this.nivelIluminacao = nivelIluminacao;
         RelatoInstance.getInstance().incrementarIluminacaoRuimCount();
     }
-
+    //Observer
+    public IluminacaoRuim(String descricao, String data, String endereco, String cidade, 
+                         int nivelPreocupacao, int qtdLampadasQueimadas, int nivelIluminacao)
+    {
+        super("Not defined", descricao, data, endereco, cidade, nivelPreocupacao);
+        
+        this.qtdLampadasQueimadas = qtdLampadasQueimadas;
+        this.nivelIluminacao = nivelIluminacao;
+        
+        RelatoInstance.getInstance().incrementarIluminacaoRuimCount();
+    }
+    //Prototype
     private IluminacaoRuim(IluminacaoRuim i)
     {
         super(i.Motivo, i.Descricao, i.Data, i.Endereco, i.Cidade, i.NivelPreocupacao);
-        this.QtdLampadasQueimadas = i.QtdLampadasQueimadas;
-        this.NivelIluminacao = i.NivelIluminacao;
+        this.qtdLampadasQueimadas = i.qtdLampadasQueimadas;
+        this.nivelIluminacao = i.nivelIluminacao;
     }
 
     public IluminacaoRuim Clone()
@@ -35,8 +48,9 @@ public class IluminacaoRuim extends Relatos
         {
             throw new ExcecoesPersonalizadas("Quantidade de lâmpadas queimadas inválida!");
         }
-
-        this.QtdLampadasQueimadas = qtdLampadasQueimadas;
+        
+        this.qtdLampadasQueimadas = qtdLampadasQueimadas;
+        
     }
 
     public void setNivelIluminacao(int nivelIluminacao) 
@@ -45,10 +59,18 @@ public class IluminacaoRuim extends Relatos
         {
             throw new ExcecoesPersonalizadas("Nível de iluminação inválido! Deve ser entre 0 e 10.");
         }
-
-        this.NivelIluminacao = nivelIluminacao;
+        
+        this.nivelIluminacao = nivelIluminacao;
+        this.notifyObservers();
+    }   
+    
+    public void notifyObservers(){
+        
+       
+        vI.update( this);
+        
     }
-
+    
     @Override
     public String toString()
     {
@@ -59,7 +81,7 @@ public class IluminacaoRuim extends Relatos
                "Endereço: " + Endereco + "\n" +
                "Cidade: " + Cidade + "\n" +
                "Nível de Preocupação: " + NivelPreocupacao + "\n" +
-               "Quantidade de Lâmpadas Queimadas: " + QtdLampadasQueimadas + "\n" +
-               "Nível de Iluminação: " + NivelIluminacao;
+               "Quantidade de Lâmpadas Queimadas: " + qtdLampadasQueimadas + "\n" +
+               "Nível de Iluminação: " + nivelIluminacao;
     }
 }

@@ -1,12 +1,8 @@
-package app;
+package App;
 
 import model.designPatterns.RelatoInstance;
-import model.entities.BuracoVia;
-import model.entities.IluminacaoRuim;
-import model.entities.LixoIrregular;
-import model.entities.SemaforoProblema;
-import model.fabrica.*;
 import model.entities.*;
+import model.fabrica.*;
 
 public class App {
     public static void main(String[] args) throws Exception 
@@ -27,7 +23,9 @@ public class App {
 
             System.out.println("------------------");
 
-            IluminacaoRuim i = new IluminacaoRuim("Iluminação Ruim", "Grande cratera", "20/07/2025", "Rua das camelias", "Goiania", 1,10, 2);
+            /*IluminacaoRuim i = new IluminacaoRuim("Iluminação Ruim", "Grande cratera", "20/07/2025", "Rua das camelias", "Goiania", 1,10, 2);
+            */
+            IluminacaoRuim i = new IluminacaoRuim("Grande cratera", "20/07/2025", "Rua das camelias", "Goiania", 1,10, 2);
             i.setDescricao("Iluminação insuficiente na praça");
             i.setEndereco("Praça Central");
             i.setCidade("Goiania");
@@ -36,9 +34,11 @@ public class App {
             i.setData("25/06/2025");
             System.out.println("Quantidade de postes queimados: " + RelatoInstance.getInstance().getIluminacaoRuimCount());
             System.out.println(i);
-
+             
             System.out.println("------------------");
-            LixoIrregular l = new LixoIrregular("Lixo Irregular", "Grande cratera", "20/07/2025", "Rua das camelias", "Goiania", 3, "Organico", 10);
+
+            //LixoIrregular l = new LixoIrregular("Lixo Irregular", "Grande cratera", "20/07/2025", "Rua das camelias", "Goiania", 3, "Organico", 10);
+            LixoIrregular l = new LixoIrregular( "Grande cratera", "20/07/2025", "Rua das camelias", "Goiania", 3, "Organico", 10);
             l.setDescricao("Lixo acumulado na esquina");
             l.setEndereco("Rua das Flores");
             l.setCidade("Goiania");

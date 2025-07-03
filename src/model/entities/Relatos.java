@@ -1,8 +1,12 @@
 package model.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import model.util.exception.ExcecoesPersonalizadas;
 
-public abstract class Relatos 
+public abstract class Relatos extends Observable
 {
     protected String Motivo;
     protected String Descricao;
@@ -10,7 +14,7 @@ public abstract class Relatos
     protected String Endereco;
     protected String Cidade;
     protected int NivelPreocupacao;
-
+    protected List <Observer> observers = new ArrayList();
     public Relatos(String motivo, String descricao, String data, String endereco, String cidade, int nivelPreocupacao)
     {
         setMotivo(motivo);
@@ -20,7 +24,15 @@ public abstract class Relatos
         setCidade(cidade);
         setNivelPreocupacao(nivelPreocupacao);
     }
-
+    /* Observer */
+    public void registerObserver(Observer observer) {
+        observers.add(observer) ;
+    }
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+    
+    
     //Setters
     public void setMotivo(String motivo)
     {

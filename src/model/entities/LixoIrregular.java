@@ -1,19 +1,32 @@
 package model.entities;
 
+import model.behavior.Verificalixo;
 import model.designPatterns.RelatoInstance;
 import model.util.exception.ExcecoesPersonalizadas;
 
 public class LixoIrregular extends Relatos
 {
     public String TipoLixo;
-    public int Quantidade;
+    public int quantidade;
+    public Verificalixo vL = new Verificalixo();
 
     public LixoIrregular(String motivo, String descricao, String data, String endereco, String cidade, 
                          int nivelPreocupacao, String tipoLixo, int quantidade)
     {
         super(motivo, descricao, data, endereco, cidade, nivelPreocupacao);
         this.TipoLixo = tipoLixo;
-        this.Quantidade = quantidade;
+        this.quantidade = quantidade;
+        
+        RelatoInstance.getInstance().incrementarLixoIrregularCount();
+    }
+    //Observer
+    public LixoIrregular( String descricao, String data, String endereco, String cidade, 
+                         int nivelPreocupacao, String tipoLixo, int quantidade)
+    {
+        super("Not defined", descricao, data, endereco, cidade, nivelPreocupacao);
+        this.TipoLixo = tipoLixo;
+        this.quantidade = quantidade;
+        this.notifyObservers();
         RelatoInstance.getInstance().incrementarLixoIrregularCount();
     }
 
@@ -22,7 +35,7 @@ public class LixoIrregular extends Relatos
     {
         super(l.Motivo, l.Descricao, l.Data, l.Endereco, l.Cidade, l.NivelPreocupacao);
         this.TipoLixo = l.TipoLixo;
-        this.Quantidade = l.Quantidade;
+        this.quantidade = l.quantidade;
     }
 
     // Método Clone para o padrão Prototype
@@ -46,7 +59,15 @@ public class LixoIrregular extends Relatos
         {
             throw new ExcecoesPersonalizadas("Quantidade inválida!");
         }
-        this.Quantidade = quantidade;
+        
+        this.quantidade = quantidade;
+        this.notifyObservers();
+    }
+    public void notifyObservers(){
+        
+       
+        vL.update( this);
+        
     }
     
     @Override
@@ -60,6 +81,6 @@ public class LixoIrregular extends Relatos
                "Cidade: " + Cidade + "\n" +
                "Nível de Preocupação: " + NivelPreocupacao + "\n" +
                "Tipo de Lixo: " + TipoLixo + "\n" +
-               "Quantidade: " + Quantidade;
+               "Quantidade: " + quantidade;
     }
 }
