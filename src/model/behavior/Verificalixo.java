@@ -15,7 +15,7 @@ public class Verificalixo implements  Observer {
     }
     public void update(LixoIrregular lI) {
         if (lI.quantidade >= 3) {
-            lI.setMotivo("Lixo Excessivo");
+            // lI.setMotivo("Lixo Excessivo");
         }
         
     }

@@ -4,41 +4,26 @@ import model.behavior.Verificalixo;
 import model.designPatterns.RelatoInstance;
 import model.util.exception.ExcecoesPersonalizadas;
 
-public class LixoIrregular extends Relatos
+public class LixoIrregular extends Relatos implements java.io.Serializable
 {
     public String TipoLixo;
     public int quantidade;
     public Verificalixo vL = new Verificalixo();
 
-    public LixoIrregular(String motivo, String descricao, String data, String endereco, String cidade, 
-                         int nivelPreocupacao, String tipoLixo, int quantidade)
+    public LixoIrregular(String descricao, String data, String endereco, String cidade, int nivelPreocupacao, String tipoLixo, int quantidade)
     {
-        super(motivo, descricao, data, endereco, cidade, nivelPreocupacao);
+        super(descricao, data, endereco, cidade, nivelPreocupacao);
         this.TipoLixo = tipoLixo;
         this.quantidade = quantidade;
-        
         RelatoInstance.getInstance().incrementarLixoIrregularCount();
     }
-    //Observer
-    public LixoIrregular( String descricao, String data, String endereco, String cidade, 
-                         int nivelPreocupacao, String tipoLixo, int quantidade)
-    {
-        super("Not defined", descricao, data, endereco, cidade, nivelPreocupacao);
-        this.TipoLixo = tipoLixo;
-        this.quantidade = quantidade;
-        this.notifyObservers();
-        RelatoInstance.getInstance().incrementarLixoIrregularCount();
-    }
-
-    // Construtor de cópia para o padrão Prototype
+    //Prototype
     private LixoIrregular(LixoIrregular l)
     {
-        super(l.Motivo, l.Descricao, l.Data, l.Endereco, l.Cidade, l.NivelPreocupacao);
+        super(l.Descricao, l.Data, l.Endereco, l.Cidade, l.NivelPreocupacao);
         this.TipoLixo = l.TipoLixo;
         this.quantidade = l.quantidade;
     }
-
-    // Método Clone para o padrão Prototype
     public LixoIrregular Clone()
     {
         return new LixoIrregular(this);
@@ -74,7 +59,6 @@ public class LixoIrregular extends Relatos
     public String toString()
     {
         return "Lixo Irregular: \n" +
-               "Motivo: " + Motivo + "\n" +
                "Descrição: " + Descricao + "\n" +
                "Data: " + Data + "\n" +
                "Endereço: " + Endereco + "\n" +

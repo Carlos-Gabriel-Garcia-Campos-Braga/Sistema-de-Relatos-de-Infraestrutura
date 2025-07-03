@@ -1,23 +1,22 @@
 package model.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import model.util.exception.ExcecoesPersonalizadas;
 
-public abstract class Relatos extends Observable
+public abstract class Relatos extends Observable implements Serializable
 {
-    protected String Motivo;
     protected String Descricao;
     protected String Data;
     protected String Endereco;
     protected String Cidade;
     protected int NivelPreocupacao;
     protected List <Observer> observers = new ArrayList();
-    public Relatos(String motivo, String descricao, String data, String endereco, String cidade, int nivelPreocupacao)
+    public Relatos(String descricao, String data, String endereco, String cidade, int nivelPreocupacao)
     {
-        setMotivo(motivo);
         setDescricao(descricao);
         setData(data);
         setEndereco(endereco);
@@ -34,16 +33,6 @@ public abstract class Relatos extends Observable
     
     
     //Setters
-    public void setMotivo(String motivo)
-    {
-        if(motivo.isEmpty() || motivo == null || motivo.length() < 3)
-        {
-            throw new ExcecoesPersonalizadas("Motivo inválido!");
-        }
-
-        this.Motivo = motivo;
-    }
-
     public void setDescricao(String descricao) 
     {
         if(descricao.isEmpty() || descricao.length() < 3)
@@ -90,4 +79,10 @@ public abstract class Relatos extends Observable
         this.NivelPreocupacao = nivelPreocupacao;
     }
 
+    // Getters públicos para acesso seguro
+    public String getDescricao() { return Descricao; }
+    public String getData() { return Data; }
+    public String getEndereco() { return Endereco; }
+    public String getCidade() { return Cidade; }
+    public int getNivelPreocupacao() { return NivelPreocupacao; }
 }

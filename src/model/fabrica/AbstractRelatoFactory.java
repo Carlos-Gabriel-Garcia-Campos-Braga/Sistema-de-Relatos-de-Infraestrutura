@@ -6,9 +6,7 @@ import model.fabrica.factories.*;
 public abstract class AbstractRelatoFactory {
     
     // Método abstrato para criar relatos
-    public abstract Relatos criarRelato(String tipo, String motivo, String descricao, 
-                                       String data, String endereco, String cidade, 
-                                       int nivelPreocupacao, Object... parametrosAdicionais);
+    public abstract Relatos criarRelato(String tipo, String descricao, String data, String endereco, String cidade, int nivelPreocupacao, Object... parametrosAdicionais);
     
     // Método factory para obter a fábrica específica
     public static AbstractRelatoFactory getFactory(String tipo) {

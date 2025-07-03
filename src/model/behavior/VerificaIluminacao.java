@@ -13,10 +13,10 @@ public class VerificaIluminacao implements   Observer {
     }
     public void update(IluminacaoRuim iR) {
         if (iR.qtdLampadasQueimadas >= 5) {
-            iR.setMotivo("Lampadas queimadas");
+            // iR.setMotivo("Lampadas queimadas");
         }
         if(iR.nivelIluminacao <=5){
-            iR.setMotivo("Baixa iluminação");
+            // iR.setMotivo("Baixa iluminação");
         }
     }
 }
