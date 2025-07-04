@@ -175,5 +175,3 @@ Este é um projeto acadêmico desenvolvido para demonstrar a implementação de 
 Para dúvidas ou sugestões sobre o projeto, entre em contato através dos canais da UFG ou abra uma issue neste repositório.
 
 ---
-
-**Desenvolvido com ❤️ pelos estudantes de Ciência da Computação da UFG**
