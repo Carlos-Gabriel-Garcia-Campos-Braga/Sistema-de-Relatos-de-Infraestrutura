@@ -1,5 +1,6 @@
 package model.entities;
 
+// Ensure this import is correct and the class exists:
 import model.behavior.VerificaIluminacao;
 import model.designPatterns.RelatoInstance;
 import model.util.exception.ExcecoesPersonalizadas;
@@ -8,7 +9,7 @@ public class IluminacaoRuim extends Relatos implements java.io.Serializable
 {
     public int qtdLampadasQueimadas;
     public int nivelIluminacao;
-    private VerificaIluminacao vI = new  VerificaIluminacao();
+    private VerificaIluminacao vI = new VerificaIluminacao();
     public IluminacaoRuim(String descricao, String data, String endereco, String cidade, int nivelPreocupacao, int qtdLampadasQueimadas, int nivelIluminacao)
     {
         super(descricao, data, endereco, cidade, nivelPreocupacao);

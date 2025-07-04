@@ -3,11 +3,7 @@ import java.util.Observable;
 import java.util.Observer;
 import model.entities.*;
 
-public class Verificalixo implements  Observer {
-    
-
-
-    
+public class Verificalixo implements  Observer { 
     @Override
     public void update(Observable o, Object arg) {
         // TODO Auto-generated method stub
