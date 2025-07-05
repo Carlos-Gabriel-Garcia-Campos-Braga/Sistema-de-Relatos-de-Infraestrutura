@@ -42,33 +42,40 @@ O projeto demonstra a implementação de **4 padrões de projeto fundamentais**:
 ```
 SistemaDeOcorrencias/
 ├── src/
-│   ├── App/
-│   │   └── App.java                 # Classe principal com interface gráfica
-│   └── model/
-│       ├── behavior/                # Implementações do padrão Observer
-│       │   ├── VerificaIluminacao.java
-│       │   └── Verificalixo.java
-│       ├── designPatterns/          # Implementação do Singleton
-│       │   └── RelatoInstance.java
-│       ├── entities/                # Entidades do sistema
-│       │   ├── Relatos.java         # Classe abstrata base
-│       │   ├── BuracoVia.java
-│       │   ├── IluminacaoRuim.java
-│       │   ├── LixoIrregular.java
-│       │   └── SemaforoProblema.java
-│       ├── fabrica/                 # Implementação do padrão Factory
-│       │   ├── AbstractRelatoFactory.java
-│       │   ├── Fabrica.java
-│       │   └── factories/
-│       │       ├── BuracoViaFactory.java
-│       │       ├── IluminacaoRuimFactory.java
-│       │       ├── LixoIrregularFactory.java
-│       │       └── SemaforoProblemaFactory.java
-│       └── util/
-│           └── exception/
-│               └── ExcecoesPersonalizadas.java
-├── bin/                             # Arquivos compilados
-└── README.md
+│   ├── app/
+│   │   └── App.java                      # Classe principal com inicialização do sistema
+│   ├── model/
+│   │   ├── behavior/                     # Implementações de verificações (Observer-like)
+│   │   │   ├── VerificaIluminacao.java
+│   │   │   └── VerificaLixo.java
+│   │   ├── designPatterns/              # Implementação do Singleton para relatos
+│   │   │   └── RelatoInstance.java
+│   │   ├── entities/                    # Entidades do sistema
+│   │   │   ├── Relatos.java             # Classe base abstrata para relatos
+│   │   │   ├── BuracoVia.java
+│   │   │   ├── IluminacaoRuim.java
+│   │   │   ├── LixoIrregular.java
+│   │   │   └── SemaforoProblema.java
+│   │   ├── fabrica/                     # Implementação do padrão Factory
+│   │   │   ├── AbstractRelatoFactory.java
+│   │   │   ├── Fabrica.java
+│   │   │   └── factories/               # Factories específicas por tipo de relato
+│   │   │       ├── BuracoViaFactory.java
+│   │   │       ├── IluminacaoRuimFactory.java
+│   │   │       ├── LixoIrregularFactory.java
+│   │   │       └── SemaforoProblemaFactory.java
+│   │   └── util/
+│   │       ├── exception/
+│   │       │   └── ExcecoesPersonalizadas.java
+│   │       └── persistencia/
+│   │           └── GerenciadorArquivos.java
+│   │
+│   └── view/
+│       └── InterfaceGrafica.java        # Interface gráfica do sistema
+│
+├── bin/                                 # Arquivos compilados (.class)
+├── README.md                            # Documentação do projeto
+└── relatos.csv                          # Base de dados simples com os relatos
 ```
 
 ## 🚀 Como Executar
@@ -175,5 +182,3 @@ Este é um projeto acadêmico desenvolvido para demonstrar a implementação de 
 Para dúvidas ou sugestões sobre o projeto, entre em contato através dos canais da UFG ou abra uma issue neste repositório.
 
 ---
-
-**Desenvolvido com ❤️ pelos estudantes de Ciência da Computação da UFG**
