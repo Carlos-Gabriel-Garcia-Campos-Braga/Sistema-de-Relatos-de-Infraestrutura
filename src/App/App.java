@@ -1,4 +1,4 @@
-package app;
+package App;
 
 import model.designPatterns.RelatoInstance;
 import model.entities.*;

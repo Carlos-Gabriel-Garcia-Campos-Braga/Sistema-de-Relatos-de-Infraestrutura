@@ -31,6 +31,11 @@ public abstract class Relatos extends Observable implements Serializable
         observers.remove(observer);
     }
     
+    // Método para notificar observers usando o padrão Java
+    protected void notificarObservers(Object arg) {
+        setChanged();
+        notifyObservers(arg);
+    }
     
     //Setters
     public void setDescricao(String descricao) 

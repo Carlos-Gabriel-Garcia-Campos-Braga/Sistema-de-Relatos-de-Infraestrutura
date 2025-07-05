@@ -16,6 +16,7 @@ public class LixoIrregular extends Relatos implements java.io.Serializable
         this.TipoLixo = tipoLixo;
         this.quantidade = quantidade;
         RelatoInstance.getInstance().incrementarLixoIrregularCount();
+        this.addObserver(vL); // Registrar observer usando método padrão do Java
     }
     //Prototype
     private LixoIrregular(LixoIrregular l)
@@ -23,6 +24,7 @@ public class LixoIrregular extends Relatos implements java.io.Serializable
         super(l.Descricao, l.Data, l.Endereco, l.Cidade, l.NivelPreocupacao);
         this.TipoLixo = l.TipoLixo;
         this.quantidade = l.quantidade;
+        this.addObserver(vL); // Registrar observer no clone também
     }
     public LixoIrregular Clone()
     {
@@ -46,13 +48,7 @@ public class LixoIrregular extends Relatos implements java.io.Serializable
         }
         
         this.quantidade = quantidade;
-        this.notifyObservers();
-    }
-    public void notifyObservers(){
-        
-       
-        vL.update( this);
-        
+        this.notificarObservers("Quantidade alterada"); // Notificar observer usando padrão Java
     }
     
     @Override

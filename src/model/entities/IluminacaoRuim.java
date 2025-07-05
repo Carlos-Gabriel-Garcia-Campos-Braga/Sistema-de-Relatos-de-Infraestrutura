@@ -16,8 +16,7 @@ public class IluminacaoRuim extends Relatos implements java.io.Serializable
         this.qtdLampadasQueimadas = qtdLampadasQueimadas;
         this.nivelIluminacao = nivelIluminacao;
         RelatoInstance.getInstance().incrementarIluminacaoRuimCount();
-        this.registerObserver(vI); // Registrar observer
-        this.notifyObservers(); // Atualizar motivo se necessário
+        this.addObserver(vI); // Registrar observer usando método padrão do Java
     }
     //Prototype
     private IluminacaoRuim(IluminacaoRuim i)
@@ -25,6 +24,7 @@ public class IluminacaoRuim extends Relatos implements java.io.Serializable
         super(i.Descricao, i.Data, i.Endereco, i.Cidade, i.NivelPreocupacao);
         this.qtdLampadasQueimadas = i.qtdLampadasQueimadas;
         this.nivelIluminacao = i.nivelIluminacao;
+        this.addObserver(vI); // Registrar observer no clone também
     }
 
     public IluminacaoRuim Clone()
@@ -40,7 +40,7 @@ public class IluminacaoRuim extends Relatos implements java.io.Serializable
         }
         
         this.qtdLampadasQueimadas = qtdLampadasQueimadas;
-        this.notifyObservers(); // Notificar observer ao alterar
+        this.notificarObservers("Lâmpadas alteradas"); // Notificar observer usando padrão Java
         
     }
 
@@ -52,15 +52,8 @@ public class IluminacaoRuim extends Relatos implements java.io.Serializable
         }
         
         this.nivelIluminacao = nivelIluminacao;
-        this.notifyObservers();
+        this.notificarObservers("Nível de iluminação alterado"); // Notificar observer usando padrão Java
     }   
-    
-    public void notifyObservers(){
-        
-       
-        vI.update( this);
-        
-    }
     
     @Override
     public String toString()

@@ -4,19 +4,29 @@ import java.util.Observer;
 import model.entities.IluminacaoRuim;
 
 
-public class VerificaIluminacao implements   Observer {
+public class VerificaIluminacao implements Observer {
     
     @Override
     public void update(Observable o, Object arg) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
-    }
-    public void update(IluminacaoRuim iR) {
-        if (iR.qtdLampadasQueimadas >= 5) {
-            // iR.setMotivo("Lampadas queimadas");
+        if (o instanceof IluminacaoRuim) {
+            IluminacaoRuim iR = (IluminacaoRuim) o;
+            verificarIluminacao(iR);
         }
-        if(iR.nivelIluminacao <=5){
-            // iR.setMotivo("Baixa iluminação");
+    }
+    
+    private void verificarIluminacao(IluminacaoRuim iR) {
+        String alerta = "";
+        
+        if (iR.qtdLampadasQueimadas >= 5) {
+            alerta += "ALERTA: Muitas lâmpadas queimadas (" + iR.qtdLampadasQueimadas + ")\n";
+        }
+        if(iR.nivelIluminacao <= 5){
+            alerta += "ALERTA: Baixa iluminação (nível " + iR.nivelIluminacao + ")\n";
+        }
+        
+        if (!alerta.isEmpty()) {
+            System.out.println("🔍 Observer detectou problema de iluminação:");
+            System.out.println(alerta);
         }
     }
 }
