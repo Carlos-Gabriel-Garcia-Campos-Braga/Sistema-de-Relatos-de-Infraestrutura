@@ -21,45 +21,51 @@ O projeto demonstra a implementação de **4 padrões de projeto fundamentais**:
 - **Classe:** `RelatoInstance`
 - **Propósito:** Garantir uma única instância para contabilizar relatos por tipo
 - **Localização:** `src/model/designPatterns/RelatoInstance.java`
+- **Funcionalidade:** Mantém contadores centralizados para cada tipo de relato
 
 #### 2. **Factory (Abstract Factory)**
 - **Classes:** `AbstractRelatoFactory`, `Fabrica`, e fábricas específicas
 - **Propósito:** Centralizar a criação de objetos de relatos
 - **Localização:** `src/model/fabrica/`
+- **Funcionalidade:** Permite criar relatos de forma padronizada e extensível
 
 #### 3. **Prototype**
 - **Implementação:** Método `Clone()` em todas as entidades
 - **Propósito:** Criar cópias de objetos existentes para novos relatos
 - **Localização:** Todas as classes de entidade em `src/model/entities/`
+- **Funcionalidade:** Facilita a criação de novos relatos baseados em protótipos
 
 #### 4. **Observer**
-- **Classes:** `VerificaIluminacao`, `Verificalixo`
+- **Classes:** `VerificaIluminacao`, `Verificalixo`, `VerificaBuraco`, `VerificaSemaforo`
 - **Propósito:** Notificar mudanças automáticas nos relatos
 - **Localização:** `src/model/behavior/`
+- **Funcionalidade:** Monitora automaticamente mudanças nos relatos e dispara alertas
 
 ### Estrutura de Diretórios
 
 ```
 SistemaDeOcorrencias/
 ├── src/
-│   ├── app/
-│   │   └── App.java                      # Classe principal com inicialização do sistema
+│   ├── App/
+│   │   └── App.java
 │   ├── model/
-│   │   ├── behavior/                     # Implementações de verificações (Observer-like)
+│   │   ├── behavior/
 │   │   │   ├── VerificaIluminacao.java
-│   │   │   └── VerificaLixo.java
-│   │   ├── designPatterns/              # Implementação do Singleton para relatos
+│   │   │   ├── Verificalixo.java
+│   │   │   ├── VerificaBuraco.java
+│   │   │   └── VerificaSemaforo.java
+│   │   ├── designPatterns/
 │   │   │   └── RelatoInstance.java
-│   │   ├── entities/                    # Entidades do sistema
-│   │   │   ├── Relatos.java             # Classe base abstrata para relatos
+│   │   ├── entities/
 │   │   │   ├── BuracoVia.java
 │   │   │   ├── IluminacaoRuim.java
 │   │   │   ├── LixoIrregular.java
+│   │   │   ├── Relatos.java
 │   │   │   └── SemaforoProblema.java
-│   │   ├── fabrica/                     # Implementação do padrão Factory
+│   │   ├── fabrica/
 │   │   │   ├── AbstractRelatoFactory.java
 │   │   │   ├── Fabrica.java
-│   │   │   └── factories/               # Factories específicas por tipo de relato
+│   │   │   └── factories/
 │   │   │       ├── BuracoViaFactory.java
 │   │   │       ├── IluminacaoRuimFactory.java
 │   │   │       ├── LixoIrregularFactory.java
@@ -69,116 +75,158 @@ SistemaDeOcorrencias/
 │   │       │   └── ExcecoesPersonalizadas.java
 │   │       └── persistencia/
 │   │           └── GerenciadorArquivos.java
-│   │
 │   └── view/
-│       └── InterfaceGrafica.java        # Interface gráfica do sistema
-│
-├── bin/                                 # Arquivos compilados (.class)
-├── README.md                            # Documentação do projeto
-└── relatos.csv                          # Base de dados simples com os relatos
+│       └── InterfaceGrafica.java
+├── uml/
+│   ├── Singleton.png
+│   ├── Factory.png
+│   ├── Prototype.png
+│   └── Observer.png
+├── bin/
+└── README.md
 ```
 
-## 🚀 Como Executar
+## 🔧 Funcionalidades
 
-### Pré-requisitos
-- Java JDK 8 ou superior
-- IDE Java (Eclipse, IntelliJ IDEA, VS Code, etc.)
-
-### Passos para Execução
-
-1. **Clone o repositório:**
-   ```bash
-   git clone [URL_DO_REPOSITORIO]
-   cd SistemaDeOcorrencias
-   ```
-
-2. **Compile o projeto:**
-   ```bash
-   javac -d bin src/**/*.java
-   ```
-
-3. **Execute a aplicação:**
-   ```bash
-   java -cp bin App.App
-   ```
-
-### Execução via IDE
-1. Abra o projeto na sua IDE preferida
-2. Localize a classe `App.java` em `src/App/`
-3. Execute a classe `App`
-
-## 💻 Funcionalidades
+### Cadastro de Relatos
+- **Buraco na Via:** Relatos de buracos e irregularidades no asfalto
+- **Iluminação Ruim:** Problemas com lâmpadas queimadas e baixa iluminação
+- **Lixo Irregular:** Acúmulo de lixo em locais inadequados
+- **Semáforo com Problema:** Defeitos em semáforos e sinalização
 
 ### Interface Gráfica
-- **Aba de Cadastro:** Formulário dinâmico para cadastrar relatos
-- **Aba de Listagem:** Tabela com todos os relatos cadastrados
-- **Contagem de Relatos:** Estatísticas por tipo de ocorrência
-
-### Tipos de Relatos Suportados
-1. **Buraco na Via**
-   - Descrição, data, endereço, cidade, nível de preocupação
-
-2. **Iluminação Ruim**
-   - Campos básicos + quantidade de lâmpadas queimadas, nível de iluminação
-
-3. **Lixo Irregular**
-   - Campos básicos + tipo de lixo, quantidade
-
-4. **Semáforo com Problema**
-   - Campos básicos + tipo de problema
+- Interface Swing moderna e intuitiva
+- Formulários específicos para cada tipo de relato
+- Tabela organizada para visualização dos relatos
+- Contadores em tempo real por tipo de ocorrência
 
 ### Persistência de Dados
-- **Formato:** CSV (Comma-Separated Values)
-- **Arquivo:** `relatos.csv`
-- **Funcionalidade:** Salvamento automático e carregamento ao iniciar
+- Salvamento automático em arquivo CSV
+- Carregamento de dados ao iniciar o sistema
+- Contadores persistentes entre sessões
+
+### Sistema de Observadores
+- **Monitoramento Automático:** Cada tipo de relato possui seu próprio observer
+- **Alertas Inteligentes:** Detecta problemas automaticamente
+- **Notificações em Tempo Real:** Console mostra alertas quando problemas são detectados
+
+## 🎮 Como Executar
+
+### Pré-requisitos
+- Java JDK 11 ou superior
+- IDE Java (Eclipse, IntelliJ IDEA, VS Code, etc.)
+
+### Execução
+1. Clone ou baixe o projeto
+2. Abra o projeto na sua IDE
+3. Execute a classe `App.java` localizada em `src/App/App.java`
+4. A interface gráfica será aberta automaticamente
+
+### Uso do Sistema
+1. **Cadastrar Relato:** Preencha os campos e clique em "Cadastrar"
+2. **Visualizar Relatos:** Use a aba "Listagem" para ver todos os relatos
+3. **Contadores:** Clique em "Contagem de Relatos" para ver estatísticas
+4. **Observadores:** Monitore o console para ver alertas automáticos
+
+## 📊 Diagramas UML
+
+### Padrão Singleton
+![Singleton UML](uml/Singleton.png)
+- **Classe:** `RelatoInstance`
+- **Funcionalidade:** Garante uma única instância para contabilizar relatos
+- **Uso:** Contadores centralizados para cada tipo de ocorrência
+
+### Padrão Factory
+![Factory UML](uml/Factory.png)
+- **Classes:** `AbstractRelatoFactory` e fábricas específicas
+- **Funcionalidade:** Centraliza a criação de objetos de relatos
+- **Uso:** Criação padronizada de diferentes tipos de relatos
+
+### Padrão Prototype
+![Prototype UML](uml/Prototype.png)
+- **Implementação:** Método `Clone()` em todas as entidades
+- **Funcionalidade:** Cria cópias de objetos existentes
+- **Uso:** Facilita a criação de novos relatos baseados em protótipos
+
+### Padrão Observer
+![Observer UML](uml/Observer.png)
+- **Classes:** `VerificaIluminacao`, `Verificalixo`, `VerificaBuraco`, `VerificaSemaforo`
+- **Funcionalidade:** Monitora mudanças automáticas nos relatos
+- **Uso:** Dispara alertas quando problemas são detectados
+
+## 🧪 Testes dos Observers
+
+### VerificaIluminacao
+- **Trigger:** Quantidade de lâmpadas queimadas ≥ 5 ou nível de iluminação ≤ 5
+- **Alerta:** "ALERTA: Muitas lâmpadas queimadas" ou "ALERTA: Baixa iluminação"
+
+### Verificalixo
+- **Trigger:** Quantidade de lixo ≥ 3
+- **Alerta:** "ALERTA: Lixo excessivo detectado"
+
+### VerificaBuraco
+- **Trigger:** Nível de preocupação ≥ 8
+- **Alerta:** "ALERTA: Buraco com alto nível de preocupação"
+
+### VerificaSemaforo
+- **Trigger:** Nível de preocupação ≥ 7 ou tipo contém "pane"/"quebrado"
+- **Alerta:** "ALERTA: Semáforo com alto nível de preocupação" ou "ALERTA: Semáforo com problema crítico"
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Linguagem:** Java 8+
-- **Interface Gráfica:** Java Swing
+- **Linguagem:** Java 11
+- **Interface:** Java Swing
 - **Padrões de Projeto:** Singleton, Factory, Prototype, Observer
 - **Persistência:** Arquivo CSV
-- **IDE Recomendada:** Eclipse, IntelliJ IDEA ou VS Code
+- **IDE:** Compatível com qualquer IDE Java
 
-## 📊 Características Técnicas
+## 📈 Funcionalidades Avançadas
 
-### Validações Implementadas
-- Campos obrigatórios com tamanho mínimo
-- Níveis de preocupação entre 1 e 10
-- Validação de quantidade de lâmpadas e nível de iluminação
-- Verificação de tipos de lixo e problemas de semáforo
+### Sistema de Observadores Inteligente
+- **Monitoramento Automático:** Cada tipo de relato possui seu próprio observer
+- **Detecção de Problemas:** Analisa dados automaticamente
+- **Alertas Contextuais:** Mensagens específicas para cada tipo de problema
+- **Tempo Real:** Notificações imediatas quando problemas são detectados
 
-### Tratamento de Exceções
-- Exceções personalizadas para validações
-- Tratamento de erros de entrada/saída
-- Mensagens de erro amigáveis ao usuário
+### Interface Responsiva
+- **Formulários Dinâmicos:** Campos específicos para cada tipo de relato
+- **Validação em Tempo Real:** Verifica dados antes de salvar
+- **Tabela Organizada:** Visualização clara de todos os relatos
+- **Contadores Atualizados:** Estatísticas em tempo real
 
-## 👥 Desenvolvedores
+### Persistência Robusta
+- **Salvamento Automático:** Dados preservados entre sessões
+- **Carregamento Inteligente:** Restaura estado anterior automaticamente
+- **Contadores Persistentes:** Mantém estatísticas corretas
+- **Tratamento de Erros:** Sistema robusto contra falhas
 
-**Equipe de Desenvolvimento - UFG**
+## 🎓 Aplicação Acadêmica
 
-- **Carlos Gabriel Braga**
-  - Estudante de Ciência da Computação
-  - Universidade Federal de Goiás (UFG)
+Este projeto demonstra a implementação prática de **4 padrões de projeto fundamentais**:
 
-- **Leonardo Amichi**
-  - Estudante de Ciência da Computação
-  - Universidade Federal de Goiás (UFG)
+1. **Singleton:** Controle centralizado de contadores
+2. **Factory:** Criação padronizada de objetos
+3. **Prototype:** Clonagem eficiente de objetos
+4. **Observer:** Monitoramento automático de mudanças
 
-- **João Frederico Xavier**
-  - Estudante de Ciência da Computação
-  - Universidade Federal de Goiás (UFG)
+### Benefícios Demonstrados
+- **Código Organizado:** Separação clara de responsabilidades
+- **Manutenibilidade:** Fácil adição de novos tipos de relato
+- **Escalabilidade:** Sistema preparado para crescimento
+- **Reutilização:** Componentes modulares e reutilizáveis
+
+## 👥 Equipe
+
+- **Desenvolvimento:** [Nome dos integrantes]
+- **Orientação:** [Nome do professor]
+- **Disciplina:** Programação Orientada a Objetos
+- **Instituição:** [Nome da faculdade]
 
 ## 📝 Licença
 
-Este projeto foi desenvolvido como parte do curso de **Programação Orientada a Objetos** na Universidade Federal de Goiás.
-
-## 🤝 Contribuições
-
-Este é um projeto acadêmico desenvolvido para demonstrar a implementação de padrões de projeto em Java. Contribuições são bem-vindas através de issues e pull requests.
-
-## 📞 Contato
-
-Para dúvidas ou sugestões sobre o projeto, entre em contato através dos canais da UFG ou abra uma issue neste repositório.
+Este projeto foi desenvolvido para fins acadêmicos como demonstração de padrões de projeto em Java.
 
 ---
+
+**Sistema de Ocorrências - Smart City**  
+*Contribuindo para cidades mais inteligentes e sustentáveis* 🏙️✨
