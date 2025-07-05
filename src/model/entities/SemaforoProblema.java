@@ -1,12 +1,12 @@
 package model.entities;
 
-import model.behavior.*;
+import model.behavior.VerificaSemaforo;
 import model.designPatterns.RelatoInstance;
 import model.util.exception.ExcecoesPersonalizadas;
 
 public class SemaforoProblema extends Relatos implements java.io.Serializable
 {
-    public String TipoProblema;
+    private String TipoProblema;
     private VerificaSemaforo vS = new VerificaSemaforo();
 
     public SemaforoProblema(String descricao, String data, String endereco, String cidade, int nivelPreocupacao, String tipoProblema)
@@ -29,6 +29,12 @@ public class SemaforoProblema extends Relatos implements java.io.Serializable
         return new SemaforoProblema(this);
     }
 
+    // Getters
+    public String getTipoProblema() {
+        return TipoProblema;
+    }
+
+    // Setters
     public void setTipoProblema(String tipoProblema) 
     {
         if(tipoProblema.isEmpty() || tipoProblema == null || tipoProblema.length() < 3)

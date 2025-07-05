@@ -165,7 +165,7 @@ public class InterfaceGrafica {
                         clone.setEndereco(endereco);
                         clone.setCidade(cidade);
                         clone.setNivelPreocupacao(nivelPreocupacao);
-                        clone.TipoProblema = tipoProblema;
+                        clone.setTipoProblema(tipoProblema);
                         relato = clone;
                         break;
                     }
@@ -224,13 +224,13 @@ public class InterfaceGrafica {
             String nivel = String.valueOf(r.getNivelPreocupacao());
             String qtdLampadas = "", nivelIlum = "", tipoLixo = "", qtdLixo = "", tipoProblema = "";
             if (r instanceof IluminacaoRuim) {
-                qtdLampadas = String.valueOf(((IluminacaoRuim) r).qtdLampadasQueimadas);
-                nivelIlum = String.valueOf(((IluminacaoRuim) r).nivelIluminacao);
+                qtdLampadas = String.valueOf(((IluminacaoRuim) r).getQtdLampadasQueimadas());
+                nivelIlum = String.valueOf(((IluminacaoRuim) r).getNivelIluminacao());
             } else if (r instanceof LixoIrregular) {
-                tipoLixo = ((LixoIrregular) r).TipoLixo;
-                qtdLixo = String.valueOf(((LixoIrregular) r).quantidade);
+                tipoLixo = ((LixoIrregular) r).getTipoLixo();
+                qtdLixo = String.valueOf(((LixoIrregular) r).getQuantidade());
             } else if (r instanceof SemaforoProblema) {
-                tipoProblema = ((SemaforoProblema) r).TipoProblema;
+                tipoProblema = ((SemaforoProblema) r).getTipoProblema();
             }
             tableModel.addRow(new Object[]{tipo, descricao, data, endereco, cidade, nivel, qtdLampadas, nivelIlum, tipoLixo, qtdLixo, tipoProblema});
         }

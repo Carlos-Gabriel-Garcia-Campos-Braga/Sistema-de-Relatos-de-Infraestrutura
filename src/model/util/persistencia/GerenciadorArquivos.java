@@ -18,17 +18,17 @@ public class GerenciadorArquivos {
                 } else if (r instanceof IluminacaoRuim) {
                     IluminacaoRuim ir = (IluminacaoRuim) r;
                     pw.printf("IluminacaoRuim;%s;%s;%s;%s;%d;%d;%d\n",
-                        ir.getDescricao(), ir.getData(), ir.getEndereco(), ir.getCidade(), ir.getNivelPreocupacao(), ir.qtdLampadasQueimadas, ir.nivelIluminacao
+                        ir.getDescricao(), ir.getData(), ir.getEndereco(), ir.getCidade(), ir.getNivelPreocupacao(), ir.getQtdLampadasQueimadas(), ir.getNivelIluminacao()
                     );
                 } else if (r instanceof LixoIrregular) {
                     LixoIrregular li = (LixoIrregular) r;
                     pw.printf("LixoIrregular;%s;%s;%s;%s;%d;%s;%d\n",
-                        li.getDescricao(), li.getData(), li.getEndereco(), li.getCidade(), li.getNivelPreocupacao(), li.TipoLixo, li.quantidade
+                        li.getDescricao(), li.getData(), li.getEndereco(), li.getCidade(), li.getNivelPreocupacao(), li.getTipoLixo(), li.getQuantidade()
                     );
                 } else if (r instanceof SemaforoProblema) {
                     SemaforoProblema sp = (SemaforoProblema) r;
                     pw.printf("SemaforoProblema;%s;%s;%s;%s;%d;%s\n",
-                        sp.getDescricao(), sp.getData(), sp.getEndereco(), sp.getCidade(), sp.getNivelPreocupacao(), sp.TipoProblema
+                        sp.getDescricao(), sp.getData(), sp.getEndereco(), sp.getCidade(), sp.getNivelPreocupacao(), sp.getTipoProblema()
                     );
                 }
             }

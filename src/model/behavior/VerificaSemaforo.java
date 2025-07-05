@@ -20,8 +20,8 @@ public class VerificaSemaforo implements Observer {
             alerta += "ALERTA: Semáforo com alto nível de preocupação (" + sP.getNivelPreocupacao() + "/10)\n";
         }
         
-        if (sP.TipoProblema.toLowerCase().contains("pane") || sP.TipoProblema.toLowerCase().contains("quebrado")) {
-            alerta += "ALERTA: Semáforo com problema crítico (" + sP.TipoProblema + ")\n";
+        if (sP.getTipoProblema().toLowerCase().contains("pane") || sP.getTipoProblema().toLowerCase().contains("quebrado")) {
+            alerta += "ALERTA: Semáforo com problema crítico (" + sP.getTipoProblema() + ")\n";
         }
         
         if (!alerta.isEmpty()) {

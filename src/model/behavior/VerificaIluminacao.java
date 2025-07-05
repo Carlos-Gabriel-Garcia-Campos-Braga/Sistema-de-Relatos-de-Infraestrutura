@@ -17,11 +17,11 @@ public class VerificaIluminacao implements Observer {
     private void verificarIluminacao(IluminacaoRuim iR) {
         String alerta = "";
         
-        if (iR.qtdLampadasQueimadas >= 5) {
-            alerta += "ALERTA: Muitas lâmpadas queimadas (" + iR.qtdLampadasQueimadas + ")\n";
+        if (iR.getQtdLampadasQueimadas() >= 5) {
+            alerta += "ALERTA: Muitas lâmpadas queimadas (" + iR.getQtdLampadasQueimadas() + ")\n";
         }
-        if(iR.nivelIluminacao <= 5){
-            alerta += "ALERTA: Baixa iluminação (nível " + iR.nivelIluminacao + ")\n";
+        if(iR.getNivelIluminacao() <= 5){
+            alerta += "ALERTA: Baixa iluminação (nível " + iR.getNivelIluminacao() + ")\n";
         }
         
         if (!alerta.isEmpty()) {

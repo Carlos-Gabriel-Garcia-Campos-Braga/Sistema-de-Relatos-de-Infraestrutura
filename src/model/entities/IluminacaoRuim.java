@@ -7,9 +7,10 @@ import model.util.exception.ExcecoesPersonalizadas;
 
 public class IluminacaoRuim extends Relatos implements java.io.Serializable
 {
-    public int qtdLampadasQueimadas;
-    public int nivelIluminacao;
+    private int qtdLampadasQueimadas;
+    private int nivelIluminacao;
     private VerificaIluminacao vI = new VerificaIluminacao();
+    
     public IluminacaoRuim(String descricao, String data, String endereco, String cidade, int nivelPreocupacao, int qtdLampadasQueimadas, int nivelIluminacao)
     {
         super(descricao, data, endereco, cidade, nivelPreocupacao);
@@ -32,6 +33,16 @@ public class IluminacaoRuim extends Relatos implements java.io.Serializable
         return new IluminacaoRuim(this);
     }
 
+    // Getters
+    public int getQtdLampadasQueimadas() {
+        return qtdLampadasQueimadas;
+    }
+    
+    public int getNivelIluminacao() {
+        return nivelIluminacao;
+    }
+
+    // Setters
     public void setQtdLampadasQueimadas(int qtdLampadasQueimadas) 
     {
         if(qtdLampadasQueimadas < 0)
@@ -41,7 +52,6 @@ public class IluminacaoRuim extends Relatos implements java.io.Serializable
         
         this.qtdLampadasQueimadas = qtdLampadasQueimadas;
         this.notificarObservers("Lâmpadas alteradas"); // Notificar observer usando padrão Java
-        
     }
 
     public void setNivelIluminacao(int nivelIluminacao) 

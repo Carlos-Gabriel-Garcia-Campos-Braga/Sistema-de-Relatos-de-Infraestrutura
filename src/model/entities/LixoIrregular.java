@@ -6,9 +6,9 @@ import model.util.exception.ExcecoesPersonalizadas;
 
 public class LixoIrregular extends Relatos implements java.io.Serializable
 {
-    public String TipoLixo;
-    public int quantidade;
-    public Verificalixo vL = new Verificalixo();
+    private String TipoLixo;
+    private int quantidade;
+    private Verificalixo vL = new Verificalixo();
 
     public LixoIrregular(String descricao, String data, String endereco, String cidade, int nivelPreocupacao, String tipoLixo, int quantidade)
     {
@@ -31,6 +31,16 @@ public class LixoIrregular extends Relatos implements java.io.Serializable
         return new LixoIrregular(this);
     }
 
+    // Getters
+    public String getTipoLixo() {
+        return TipoLixo;
+    }
+    
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    // Setters
     public void setTipoLixo(String tipoLixo) 
     {
         if(tipoLixo.isEmpty() || tipoLixo == null || tipoLixo.length() < 3)

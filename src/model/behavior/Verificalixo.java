@@ -15,8 +15,8 @@ public class Verificalixo implements Observer {
     private void verificarLixo(LixoIrregular lI) {
         String alerta = "";
         
-        if (lI.quantidade >= 3) {
-            alerta += "ALERTA: Lixo excessivo detectado (" + lI.quantidade + " unidades)\n";
+        if (lI.getQuantidade() >= 3) {
+            alerta += "ALERTA: Lixo excessivo detectado (" + lI.getQuantidade() + " unidades)\n";
         }
         
         if (!alerta.isEmpty()) {
