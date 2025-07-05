@@ -1,6 +1,6 @@
 package model.entities;
 
-import model.behavior.VerificaSemaforo;
+import model.behavior.*;
 import model.designPatterns.RelatoInstance;
 import model.util.exception.ExcecoesPersonalizadas;
 

@@ -1,4 +1,4 @@
-package model.behavior;
+package model.behavior; 
 import java.util.Observable;
 import java.util.Observer;
 import model.entities.BuracoVia;
