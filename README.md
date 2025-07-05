@@ -217,13 +217,9 @@ Este projeto demonstra a implementação prática de **4 padrões de projeto fun
 
 ## 👥 Equipe
 
-- **Desenvolvimento:** [Carlos Gabriel Garcia Campos Braga, Leonardo Amichi, João Frederico]
+- **Desenvolvimento:** Carlos Gabriel Garcia Campos Braga, Leonardo Amichi, João Frederico
 - **Disciplina:** Programação Orientada a Objetos
-- **Instituição:** [UFG]
-
-## 📝 Licença
-
-Este projeto foi desenvolvido para fins acadêmicos como demonstração de padrões de projeto em Java.
+- **Instituição:** UFG
 
 ---
 
