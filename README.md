@@ -217,10 +217,9 @@ Este projeto demonstra a implementação prática de **4 padrões de projeto fun
 
 ## 👥 Equipe
 
-- **Desenvolvimento:** [Nome dos integrantes]
-- **Orientação:** [Nome do professor]
+- **Desenvolvimento:** [Carlos Gabriel Garcia Campos Braga, Leonardo Amichi, João Frederico]
 - **Disciplina:** Programação Orientada a Objetos
-- **Instituição:** [Nome da faculdade]
+- **Instituição:** [UFG]
 
 ## 📝 Licença
 
